@@ -26,9 +26,9 @@ void main(){
     scanf("%d",&array[i]);
   }
   int *arrPtr = array;
-  sort(arrPtr,0,(n/2)-1,1);
+  sort(arrPtr,0,(n/2),1);
   sort(arrPtr,n/2,n-1,0);
-  for(i=n;i<=m;i++){
-    printf("%d\t",arr[i]);
+  for(i=0;i<n;i++){
+    printf("%d\t",arrPtr[i]);
   }
 }
