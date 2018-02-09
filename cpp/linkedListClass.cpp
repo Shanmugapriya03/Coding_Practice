@@ -30,6 +30,18 @@ public:
     last->next=nn;
     return;
   }
+  void reverse(){
+    node *prev = NULL;
+    node *current = head;
+    node *next;
+    while(current != NULL){
+      next = current->next;
+      current->next = prev;
+      prev = current;
+      current = next;
+    }
+    head = prev;
+  }
   void printList(){
     node *n = new node;
     n=head;
@@ -53,6 +65,7 @@ int main(){
    while(infile>>content){
      a.append(content);
    }
+   a.reverse();
    a.printList();
   return 0;
 }
