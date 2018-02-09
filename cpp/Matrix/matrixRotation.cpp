@@ -34,10 +34,16 @@ int main() {
   cout<<"enter the number of rows/columns"<<endl;
   cin>>n;
   vector< vector<int> > matrix (n,vector<int> (n));
+  vector< vector<int> > dummy(n,vector<int> (n));
   cout<<"enter the matrix"<<endl;
   for(r=0;r<n;r++){
     for(c=0;c<n;c++){
       cin>>matrix[r][c];
+    }
+  }
+  for(r=1;r<n-1;r++){
+    for(c=1;c<n-1;c++){
+      dummy[r][c]=matrix[r][c];
     }
   }
   do{
@@ -47,6 +53,11 @@ int main() {
       case 1:
         cout<<"Rotated Clockwise :"<<endl;
         matrix=clockWise(matrix);
+        for(r=1;r<n-1;r++){
+          for(c=1;c<n-1;c++){
+            matrix[r][c]=dummy[r][c];
+          }
+        }
         for(r=0;r<n;r++){
           for(c=0;c<n;c++){
             cout<<matrix[r][c]<<"\t";
@@ -56,6 +67,11 @@ int main() {
       case 2:
         cout<<"Rotated Anti-Clockwise :"<<endl;
         matrix=antiClockWise(matrix);
+        for(r=1;r<n-1;r++){
+          for(c=1;c<n-1;c++){
+            matrix[r][c]=dummy[r][c];
+          }
+        }
         for(r=0;r<n;r++){
           for(c=0;c<n;c++){
             cout<<matrix[r][c]<<"\t";
